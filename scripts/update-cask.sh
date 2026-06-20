@@ -27,8 +27,11 @@ echo "  aarch64 sha256: ${arm_sha}"
 echo "  x64     sha256: ${x64_sha}"
 
 sed -i '' -E "s/^  version \".*\"/  version \"${VERSION}\"/" "${CASK}"
-sed -i '' "s/REPLACE_WITH_AARCH64_DMG_SHA256/${arm_sha}/" "${CASK}"
-sed -i '' "s/REPLACE_WITH_X64_DMG_SHA256/${x64_sha}/" "${CASK}"
+# Replace the sha256 inside the on_arm / on_intel blocks. Re-runnable across
+# bumps: matches whatever 64-hex value (or the REPLACE_WITH_* placeholder) is
+# currently there, not a fixed string.
+perl -0pi -e "s/(on_arm do\s*\n\s*sha256 \")([0-9a-f]{64}|REPLACE_WITH_AARCH64_DMG_SHA256)(\")/\${1}${arm_sha}\${3}/s" "${CASK}"
+perl -0pi -e "s/(on_intel do\s*\n\s*sha256 \")([0-9a-f]{64}|REPLACE_WITH_X64_DMG_SHA256)(\")/\${1}${x64_sha}\${3}/s" "${CASK}"
 
 echo
 echo "Updated ${CASK}"
