@@ -2,13 +2,13 @@ cask "clipfix" do
   version "0.1.0"
 
   on_arm do
-    sha256 "REPLACE_WITH_AARCH64_DMG_SHA256"
+    sha256 "82879ba5b34c948a11ee6269fe6619963750a8df77306894a6ff8e0bf1e27079"
 
     url "https://github.com/NicolasArnouts/ClipFix/releases/download/v#{version}/ClipFix_#{version}_aarch64.dmg",
         verified: "github.com/NicolasArnouts/ClipFix/"
   end
   on_intel do
-    sha256 "REPLACE_WITH_X64_DMG_SHA256"
+    sha256 "3d0b305dd624e7d1b1abe7c874ae57fe5bf24485ae4a8ffb4cfe7db88309f9cf"
 
     url "https://github.com/NicolasArnouts/ClipFix/releases/download/v#{version}/ClipFix_#{version}_x64.dmg",
         verified: "github.com/NicolasArnouts/ClipFix/"
