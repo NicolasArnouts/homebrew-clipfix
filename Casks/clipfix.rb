@@ -34,7 +34,7 @@ cask "clipfix" do
     "~/Library/Application Support/com.clipfix.desktop",
     "~/Library/Caches/com.clipfix.desktop",
     "~/Library/HTTPStorages/com.clipfix.desktop",
-    "~/Library/LaunchAgents/com.clipfix.desktop.plist",
+    "~/Library/LaunchAgents/ClipFix.plist",
     "~/Library/Preferences/com.clipfix.desktop.plist",
     "~/Library/Saved Application State/com.clipfix.desktop.savedState",
   ]
